@@ -1,0 +1,14 @@
+{
+  "name": "feedreader",
+  "version": "1.0.0",
+  "description": "Udacity Front End Track: Project 4 - Feed Reader Testing -",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Mohamed Yassine Laggoun",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
