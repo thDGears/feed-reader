@@ -9,13 +9,14 @@ We've also add some optimizations to our code using Gulp.
 
 ## How to run
 
-You can visit the live version directly: [Feed Reader](https://thdgears.github.io/arcade-game/) OR "clone/download" the source files to your computer, then open the "index.html" file in the browser.
+After you've cloned/downloaded the source files to your computer, open the "index.html" file in the browser.
 
 **NOTE:** this project has also a distribution version you can find it in the "dist" folder. We used Jasmine for unit testing, and the test results are in the bottom of the web page "index.html". However, in the distribution version "index.html", i removed the Jasmine part from the "index.html".
 
 ## How to edit
 
-After you've cloned/downloaded the project files to your computer, open the "feedreader.js" file following this path: jasmine > spec > feedreader.js
+After you've cloned/downloaded the project files to your computer, open the "feedreader.js" file following this path:
+jasmine > spec > feedreader.js
 
 You will find eight specs, you can edit or add more tests. The test results apear at the bottom of the web page "index.html".
 
@@ -23,17 +24,18 @@ You will find eight specs, you can edit or add more tests. The test results apea
   * [Node.js](https://nodejs.org/en/)
   * [Jasmine](https://jasmine.github.io/index.html)
   * [Gulp](https://www.npmjs.com/package/gulp)
-  ### Live Editing
+  #### Live Editing
   * [Browsersync](https://www.npmjs.com/package/browser-sync)
-  ### CSS Optimizations
+  #### CSS Optimizations
   * [gulp-sass](https://www.npmjs.com/package/gulp-sass)
   * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
-  ### Javascript Optimizations
+  #### Javascript Optimizations
   * [gulp-concat](https://www.npmjs.com/package/gulp-concat)
   * [gulp-terser](https://www.npmjs.com/package/gulp-terser)
   * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
 
 I didn't use "gulp-babel" and "gulp-eslint", because they are producing too much errors. But i will try to fix them in the future.
+**Note:** Live editing is not working properly right now.
 
 ## Using Gulp
 
