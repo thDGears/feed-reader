@@ -15,7 +15,7 @@ After you've cloned/downloaded the source files to your computer, open the "inde
 
 ## How to edit
 
-After you've cloned/downloaded the project files to your computer, open the "feedreader.js" file following this path:
+After you've cloned/downloaded the project files to your computer, open the "feedreader.js" file following this path:  
 jasmine > spec > feedreader.js
 
 You will find eight specs, you can edit or add more tests. The test results apear at the bottom of the web page "index.html".
