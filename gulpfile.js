@@ -32,7 +32,7 @@ gulp.task('default', () => {
 function dist() {
 	copyHtml(); // NOTE: don't forget to remove the Jasmine part from the distributed "index.html" file
 	styles();
-	scriptsDist();
+	scripts();
 }
 
 // Copy the "index.html" file into the (dist) folder
