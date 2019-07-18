@@ -4,7 +4,7 @@ This is the fourth project of the **Udacity Front End Nanodegree Program**.
 
 ## Description
 
-In this project we used Jasmine to write a number of tests against a pre-existing application. These will test the underlying business logic of the application as well as the event handling and DOM manipulation.
+In this project we used Jasmine to write a number of tests against a pre-existing application. These will test the underlying business logic of the application as well as the event handling and DOM manipulation.  
 We've also add some optimizations to our code using Gulp.
 
 ## How to run
@@ -34,7 +34,7 @@ You will find eight specs, you can edit or add more tests. The test results apea
   * [gulp-terser](https://www.npmjs.com/package/gulp-terser)
   * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
 
-I didn't use "gulp-babel" and "gulp-eslint", because they are producing too much errors. But i will try to fix them in the future.
+I didn't use "gulp-babel" and "gulp-eslint", because they are producing too much errors. But i will try to fix them in the future.  
 **Note:** Live editing is not working properly right now.
 
 ## Using Gulp
@@ -45,14 +45,14 @@ In the project's root directory, there's a "gulpfile.js" file. Open it in your t
 
 There are five tasks: default, dist, copyHtml, scripts and styles.
 
-**Default:** watches & updates any changes made to the files automatically. It also opens the default browser for live editing.
-**Dist:** produce the distribution version of the app and puts all the files in the "dist" folder.
-**CopyHtml:** it just copies the "index.html" file to the dist folder.
-**Scripts:** optimizes the JavaScript code by adding sourcemaps, concatination, minifying the file size.
+**Default:** watches & updates any changes made to the files automatically. It also opens the default browser for live editing.  
+**Dist:** produce the distribution version of the app and puts all the files in the "dist" folder.  
+**CopyHtml:** it just copies the "index.html" file to the dist folder.  
+**Scripts:** optimizes the JavaScript code by adding sourcemaps, concatination, minifying the file size.  
 **Styles:** Compiles (Transpile) the SCSS code into CSS and adds vendor prefixes.
 
-In order to run any task, just open up the command prompt or terminal and type in:
-`gulp` to run the default task.
+In order to run any task, just open up the command prompt or terminal and type in:  
+`gulp` to run the default task.  
 `gulp name_of_the_task` to run any other task. eg: `gulp styles`
 
 ### Exporting the distribution version
@@ -70,7 +70,7 @@ You should also remove the Jasmine part from "index.html" file. And this is how 
 
 ## Contributing
 
-This repository is only for demonstration purposes, so right now, i don't accept pull requests. However, you are free to clone/download the source code, make changes, republish...etc
+This repository is only for demonstration purposes, so right now, i don't accept pull requests. However, you are free to clone/download the source code, make changes, republish...etc  
 You are not required to give any attribution, but if you do so that would be nice!
 
 ## Sources
