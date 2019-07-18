@@ -9,6 +9,14 @@
   "author": "Mohamed Yassine Laggoun",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-terser": "^1.2.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
   }
 }
