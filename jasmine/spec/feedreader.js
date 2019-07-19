@@ -15,24 +15,18 @@ $(function() {
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
     */
-    describe('RSS Feeds', function() {
+    describe('RSS Feeds', () => {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
          * empty. Experiment with this before you get started on
-         * the rest of this project. What happens when you change
-         * allFeeds in app.js to be an empty array and refresh the
-         * page?
+         * the rest of this project.
          */
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
 
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
-         */
+        // Make sure that the feeds URLs are truthy
         it('have a URL defined', () => {
             for (const obj of allFeeds) {
                 expect(obj.url).toBeDefined();
@@ -40,10 +34,7 @@ $(function() {
             }
         });
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
-         */
+        // Make sure that the feeds names are truthy
         it('have a name defined', () => {
             for (const obj of allFeeds) {
                 expect(obj.name).toBeDefined();
@@ -52,26 +43,14 @@ $(function() {
         });
     });
 
-
-    /* TODO: Write a new test suite named "The menu" */
     describe('The Menu', () => {
 
         const body = document.querySelector('body');
 
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
-         */
         it('is hidden by default', () => {
             expect(body).toHaveClass('menu-hidden');
         });
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
         it('changes visibility when the menu icon is clicked', () => {
             const menuIcon = document.querySelector('.menu-icon-link');
 
@@ -92,77 +71,50 @@ $(function() {
         });
     });
 
-    /* TODO: Write a new test suite named "Initial Entries" */
-    describe('Initial Entries', () => {
+	describe('Initial Entries', () => {
 
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
-        beforeEach((done) => {
-            loadFeed(0, done);
-        });
+		beforeEach((done) => {
+			loadFeed(0, done);
+		});
 
-        it('has at least a single .entry element within the .feed container', (done) => {
-            const entries = document.querySelectorAll('.feed .entry');
-            
-            expect(entries.length).toBeGreaterThan(0);
-            done();
-        });
-    });
+		it('has at least a single .entry element within the .feed container', (done) => {
+			const entries = document.querySelectorAll('.feed .entry');
+	            
+			expect(entries.length).toBeGreaterThan(0);
+			done();
+		});
+	});
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
-    describe('New Feed Selection', () => {
+	// Make sure that the content changes when a new feed is loaded
+	describe('New Feed Selection', () => {
 
-    	// Ensures that the "feed-list" is loaded & there are at least TWO feeds to select from the list
-        // If this test fails, then the upcoming test will also fail.
-        it('has at least two feeds to select from the list', () => {
-            const feedList = document.querySelector('.feed-list');
-            expect(feedList.children.length).toBeGreaterThan(1);
-        });
+		let feedAfterFirstLoad;
+		let feedAfterSecondLoad;
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
-        describe('The feed', () => {
+		beforeEach((done) => {
+	  		loadFeed(0, () => {
+	     		const feedContainer = document.querySelector('.feed');
+	     		feedAfterFirstLoad = feedContainer.innerHTML;
+	     		
+		     	loadFeed(1, () => {
+		        	const feedContainer = document.querySelector('.feed');
+		        	feedAfterSecondLoad = feedContainer.innerHTML;
+		        	done();
+		    	});
+	  		});
+	  	});
 
-            const textForTesting = 'testing';
-            const feedIndex = 1;
+		/* Return to default when the test completes
+		 * This is optional
+		 */
+	  	afterEach((done) => {
+	  		loadFeed(0, done);
+	  	})
 
-            beforeEach((done) => {
-                // Set up a known "headings" values. After running the "loadFeed" function we'll check if the headings change.
-                const feedEntryHeadings = document.querySelectorAll('.entry h2');
-                feedEntryHeadings.forEach((heading) => {
-                    heading.textContent = textForTesting;
-                });
-                
-                // Loads the second feed in the list
-                loadFeed(feedIndex, done);
-            });
+	  	it('content changes when a new feed is loaded', (done) => {
+			expect(feedAfterFirstLoad).not.toEqual(feedAfterSecondLoad);
+			done();
+		});
+	});
 
-            // After the test completes, return back to default
-            afterEach((done) => {
-                loadFeed(0, done);
-            })
-
-            // Feed content must be updated when a new feed is loaded
-            it('content changes when a new feed is loaded', (done) => {
-                const feedTitle = document.querySelector('.header-title');
-                const feedEntryHeadings = document.querySelectorAll('.entry h2');
-                
-                // Checks if the Feed title changed
-                expect(feedTitle.textContent.trim()).toMatch(allFeeds[feedIndex].name);
-                
-                // Checks if the feed entry's headings changed
-                feedEntryHeadings.forEach((heading) => {
-                    expect(heading.textContent.trim()).not.toMatch(textForTesting);
-                });
-
-                done();
-            });
-        });
-    });
 }());
